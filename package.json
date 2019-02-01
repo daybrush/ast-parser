@@ -1,0 +1,23 @@
+{
+  "name": "ast-parser",
+  "version": "0.0.0",
+  "description": "",
+  "main": "parser.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage && print-coveralls --sort=desc",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/traverse": "^7.2.3",
+    "@babel/types": "^7.3.0",
+    "@daybrush/utils": "^0.5.2"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.3.1",
+    "eslint": "^5.12.1",
+    "jest": "^24.0.0"
+  }
+}
