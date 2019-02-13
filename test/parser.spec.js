@@ -149,4 +149,17 @@ describe("test typescript type", () => {
     expect(info.id.typeAnnotation.typeAnnotation.string).toBe("null");
     expect(info.id.typeAnnotation.typeAnnotation.key).toBe("null");
   });
+  it (`test TSObjectKeyword`, () => {
+    // Given, When
+    const info = find("VariableDeclarator", `
+      const a: object = null;
+  `);
+
+    // Then
+    expect(info.string).toBe("a: object = null");
+    expect(info.id.string).toBe("a: object");
+    expect(info.id.typeAnnotation.string).toBe("object");
+    expect(info.id.typeAnnotation.typeAnnotation.string).toBe("object");
+    expect(info.id.typeAnnotation.typeAnnotation.nodeType).toBe("TSObjectKeyword");
+  });
 });

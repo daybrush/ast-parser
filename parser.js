@@ -559,7 +559,7 @@ var types = {
         return read(node, {
             members: 'array'
         }, {
-            template: '$if{members, "{" + members + "}"}'
+            template: '$if{"{" + members + "}"}'
         });
     },
     ClassMethod: function(node) {
@@ -803,6 +803,12 @@ var types = {
         return {
             template: 'null',
             key: 'null'
+        };
+    },
+    TSObjectKeyword: function() {
+        return {
+            template: 'object',
+            key: 'object'
         };
     },
     TSVoidKeyword: function() {

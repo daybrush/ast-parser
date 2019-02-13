@@ -1,19 +1,31 @@
 {
   "name": "ast-parser",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "parser.js",
+  "types": "parser.d.ts",
   "scripts": {
     "test": "jest --watchAll",
     "coverage": "jest --coverage && print-coveralls --sort=desc",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ast",
+    "babel",
+    "tsdoc",
+    "jsdoc",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/daybrush/ast-parser/issues"
+  },
+  "homepage": "https://github.com/daybrush/ast-parser",
+  "author": "Daybrush",
+  "license": "MIT",
   "dependencies": {
     "@babel/traverse": "^7.2.3",
     "@babel/types": "^7.3.0",
-    "@daybrush/utils": "^0.5.2"
+    "@daybrush/utils": "^0.6.0"
   },
   "devDependencies": {
     "@babel/parser": "^7.3.1",
