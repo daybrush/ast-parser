@@ -1,4 +1,4 @@
-const {parse: astParse, find: _find, findInfo} = require("../parser");
+const {find: _find, findInfo} = require("../parser");
 const {parse: babelParse} = require("@babel/parser");
 
 function getNode(code) {
@@ -87,6 +87,8 @@ describe(`test parser`, () => {
     expect(info.string).toBe("class A extends B implements C");
     expect(info2.length).toBe(5);
     expect(info3.length).toBe(2);
+    expect(info2[0].accessibility).toBe("");
+    expect(info2[0].key.string).toBe("a");
     expect(info2[0].string).toBe("a");
     expect(info2[1].string).toBe("b: number");
     expect(info2[2].string).toBe("private c: string");
@@ -133,5 +135,18 @@ describe("test typescript type", () => {
     // Then
     expect(info.string).toBe("declare module Window");
     expect(info2.string).toBe("module Validation");
+  });
+  it (`test TSNullKeyword`, () => {
+    // Given, When
+    const info = find("VariableDeclarator", `
+      const a: null = null;
+  `);
+
+    // Then
+    expect(info.string).toBe("a: null = null");
+    expect(info.id.string).toBe("a: null");
+    expect(info.id.typeAnnotation.string).toBe("null");
+    expect(info.id.typeAnnotation.typeAnnotation.string).toBe("null");
+    expect(info.id.typeAnnotation.typeAnnotation.key).toBe("null");
   });
 });

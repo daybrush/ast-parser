@@ -1,3 +1,4 @@
+/* eslint-disable no-implicit-coercion */
 /* eslint-disable new-cap */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-template-curly-in-string */
@@ -102,7 +103,7 @@ function checkValue(target) {
     } else {
         var type = typeof target;
 
-        return type === 'boolean' || type === 'number' || !target;
+        return type === 'boolean' || type === 'number' || !!target;
     }
 }
 function checkCalc(str, info) {
@@ -796,6 +797,12 @@ var types = {
         return {
             template: 'string',
             key: 'string'
+        };
+    },
+    TSNullKeyword: function() {
+        return {
+            template: 'null',
+            key: 'null'
         };
     },
     TSVoidKeyword: function() {
