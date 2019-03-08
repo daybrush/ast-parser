@@ -316,12 +316,19 @@ var types = {
         info.specifiers = [
             {
                 string: 'default',
-                key: (typeof key === 'string' ? key : key.string) || '',
+                key: (key && (typeof key === 'string' ? key : key.string)) || '',
                 alias: 'default'
             }
         ];
 
         return info;
+    },
+    BlockStatement: function(node) {
+        return read(node, {
+            body: 'array'
+        }, {
+            tempalte: '{${body, ""}}'
+        });
     },
     ExportSpecifier: function(node) {
         return read(node, {
