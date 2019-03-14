@@ -325,9 +325,8 @@ var types = {
     },
     BlockStatement: function(node) {
         return read(node, {
-            body: 'array'
         }, {
-            tempalte: '{${body, ""}}'
+            tempalte: '{}'
         });
     },
     ExportSpecifier: function(node) {
