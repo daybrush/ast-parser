@@ -1062,7 +1062,20 @@ var types = {
         }, {
             template: '/${pattern}/${flags}'
         });
-    }
+    },
+    ObjectMethod: function(node) {
+        return read(node, {
+            key: 'type',
+            params: 'array',
+            generator: 'value',
+            async: 'value',
+            returnType: 'type',
+            typeParameters: 'type',
+        }, {
+            parameters: '@alias:params',
+            template: '${key}${typeParameters}(${parameters})$if{returnType, ": " + returnType}'
+        });
+    },
 };
 
 function parse(node, parentNode, property) {
