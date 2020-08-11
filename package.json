@@ -1,6 +1,6 @@
 {
   "name": "ast-parser",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "parser.js",
   "types": "parser.d.ts",
@@ -25,7 +25,7 @@
   "dependencies": {
     "@babel/traverse": "^7.2.3",
     "@babel/types": "^7.3.0",
-    "@daybrush/utils": "^0.6.0"
+    "@daybrush/utils": "^0.11.0"
   },
   "devDependencies": {
     "@babel/parser": "^7.3.1",
