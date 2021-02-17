@@ -326,7 +326,7 @@ var types = {
   BlockStatement: function (node) {
     return read(node, {
     }, {
-      tempalte: '{}'
+      template: '{}'
     });
   },
   ExportSpecifier: function (node) {
