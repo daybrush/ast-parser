@@ -1159,7 +1159,15 @@ function convert(ast) {
   });
 }
 
+var isDebug = false;
+
+function enableDebug() {
+    isDebug = true;
+}
 debug(function (info, node, parentNode, property) {
+    if (!isDebug) {
+        return;
+    }
   console.log('register TS TYPE: ' + node.type, 'parent TS Type: ' + (parentNode && parentNode.type) + '.' + property);
 }, function (info) {
   return info.isNotExist;
@@ -1177,6 +1185,7 @@ debug(function (info, node, parentNode, property) {
 // debug(function(info, node, parentNode, property) {
 //     // console.log("EX", info.string, parentNode.type, property);
 // }, "VariableDeclaration")
+exports.enableDebug = enableDebug;
 exports.debug = debug;
 exports.parse = parse;
 exports.find = find;
