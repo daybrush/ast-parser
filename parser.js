@@ -227,6 +227,7 @@ var types = {
         if (!rv.html) {
             rv.html = replaceUnicode(rv.string);
         }
+        rv.node = node;
 
         return rv;
     },
@@ -1092,6 +1093,7 @@ function parse(node, parentNode, property) {
     } else {
         rv = types._parse(node, parentNode, property);
     }
+    rv.node = node;
     rv.typeId = getTypeId;
 
     return rv;
